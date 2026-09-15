@@ -1,0 +1,717 @@
+/* =====================================================================
+   MediCore HMS - Stylesheet
+   Theme: Dark navy + medical green/teal
+   ===================================================================== */
+
+:root {
+    --navy-900: #0b1727;
+    --navy-800: #10233a;
+    --navy-700: #16304d;
+    --navy-600: #1c3d61;
+    --teal-500: #14b8a6;
+    --teal-400: #2dd4bf;
+    --teal-600: #0d9488;
+    --text-light: #e7edf3;
+    --text-muted: #93a2b8;
+    --border-soft: rgba(255, 255, 255, 0.08);
+    --danger: #ef4444;
+    --card-bg: #132539;
+    --body-bg: #0e1b2c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--body-bg);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.925rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ---------------------------------------------------------------- */
+/* Layout                                                            */
+/* ---------------------------------------------------------------- */
+
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.app-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-left: 260px;
+}
+
+.app-main {
+    padding: 24px;
+    flex: 1;
+}
+
+.app-footer {
+    padding: 14px 24px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border-soft);
+}
+
+/* ---------------------------------------------------------------- */
+/* Sidebar                                                            */
+/* ---------------------------------------------------------------- */
+
+.app-sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, var(--navy-900), var(--navy-800));
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-soft);
+    z-index: 1030;
+    transition: transform 0.25s ease;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 22px 20px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.brand-icon {
+    font-size: 1.8rem;
+    color: var(--teal-400);
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff;
+    line-height: 1.1;
+}
+
+.brand-subtitle {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.sidebar-nav {
+    padding: 14px 12px;
+    overflow-y: auto;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 4px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-link i {
+    font-size: 1.05rem;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-link:hover {
+    background: rgba(20, 184, 166, 0.1);
+    color: var(--text-light);
+}
+
+.sidebar-link.active {
+    background: var(--teal-600);
+    color: #fff;
+}
+
+.sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1020;
+}
+
+/* ---------------------------------------------------------------- */
+/* Top bar                                                            */
+/* ---------------------------------------------------------------- */
+
+.app-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--navy-700);
+    border-bottom: 1px solid var(--border-soft);
+    position: sticky;
+    top: 0;
+    z-index: 1010;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.app-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.sidebar-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-soft);
+    color: var(--text-light);
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+.app-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.live-clock {
+    font-size: 0.85rem;
+    color: var(--teal-400);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topbar-user-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    text-align: right;
+}
+
+.topbar-user-name {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #fff;
+}
+
+.topbar-user-role {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.topbar-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--teal-600);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- */
+/* Buttons                                                            */
+/* ---------------------------------------------------------------- */
+
+.app-btn-primary {
+    background: var(--teal-600);
+    border-color: var(--teal-600);
+    color: #fff;
+}
+
+.app-btn-primary:hover {
+    background: var(--teal-500);
+    border-color: var(--teal-500);
+    color: #fff;
+}
+
+.app-btn-outline {
+    background: transparent;
+    border: 1px solid var(--border-soft);
+    color: var(--text-light);
+}
+
+.app-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
+/* ---------------------------------------------------------------- */
+/* Table Action Buttons                                               */
+/* ---------------------------------------------------------------- */
+
+.app-table .btn {
+    min-width: 34px;
+    height: 32px;
+    padding: 5px 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    vertical-align: middle;
+}
+
+.app-table .app-btn-outline {
+    color: #e7edf3 !important;
+    border: 1px solid rgba(255, 255, 255, 0.30) !important;
+    background: transparent !important;
+}
+
+.app-table .app-btn-outline:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.10) !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.app-table .app-btn-outline i {
+    color: #e7edf3 !important;
+    opacity: 1 !important;
+}
+
+.app-table .app-btn-outline:hover i {
+    color: #fff !important;
+}
+
+.app-table .btn-outline-danger {
+    color: #ef4444 !important;
+    border-color: rgba(239, 68, 68, 0.45) !important;
+    background: transparent !important;
+}
+
+.app-table .btn-outline-danger:hover {
+    color: #fff !important;
+    background: rgba(239, 68, 68, 0.15) !important;
+    border-color: #ef4444 !important;
+}
+
+.app-table .btn-outline-danger i {
+    color: #ef4444 !important;
+}
+
+.app-table .btn-outline-danger:hover i {
+    color: #fff !important;
+}
+
+.app-table .btn i {
+    font-size: 0.95rem;
+    line-height: 1;
+    display: inline-block;
+}
+
+/* ---------------------------------------------------------------- */
+/* Cards                                                              */
+/* ---------------------------------------------------------------- */
+
+.app-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.app-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.app-card-header h5 {
+    margin: 0;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.app-card-body {
+    padding: 20px;
+}
+
+.app-card-footer {
+    padding: 14px 20px;
+    border-top: 1px solid var(--border-soft);
+}
+
+/* ---------------------------------------------------------------- */
+/* Stat cards on dashboard                                           */
+/* ---------------------------------------------------------------- */
+
+.stat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 18px;
+    height: 100%;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.bg-teal {
+    background: var(--teal-600);
+}
+
+.bg-navy {
+    background: var(--navy-600);
+}
+
+.stat-value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* ---------------------------------------------------------------- */
+/* Tables                                                             */
+/* ---------------------------------------------------------------- */
+
+.app-table {
+    --bs-table-bg: var(--card-bg);
+    --bs-table-color: var(--text-light);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.02);
+    --bs-table-hover-color: var(--text-light);
+    color: var(--text-light);
+    background-color: var(--card-bg);
+    margin-bottom: 0;
+}
+
+.app-table thead th {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border-soft);
+    padding: 12px 16px;
+    white-space: nowrap;
+}
+
+.app-table tbody,
+.app-table tbody tr,
+.app-table tbody td {
+    background-color: var(--card-bg) !important;
+    color: var(--text-light) !important;
+}
+
+.app-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: middle;
+}
+
+.app-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.app-table tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.app-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ---------------------------------------------------------------- */
+/* Forms                                                              */
+/* ---------------------------------------------------------------- */
+
+.form-control,
+.form-select {
+    background: var(--navy-800);
+    border: 1px solid var(--border-soft);
+    color: var(--text-light);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: var(--navy-800);
+    border-color: var(--teal-500);
+    color: var(--text-light);
+    box-shadow: 0 0 0 0.2rem rgba(20, 184, 166, 0.15);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.form-label {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    margin-bottom: 6px;
+}
+
+.form-check-label {
+    color: var(--text-light);
+}
+
+.form-control-plaintext {
+    color: var(--text-light);
+}
+
+/* ---------------------------------------------------------------- */
+/* Detail view                                                        */
+/* ---------------------------------------------------------------- */
+
+.detail-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.detail-value {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* ---------------------------------------------------------------- */
+/* Empty state                                                        */
+/* ---------------------------------------------------------------- */
+
+.empty-state {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--text-muted);
+}
+
+.empty-state i {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+/* ---------------------------------------------------------------- */
+/* Alerts                                                             */
+/* ---------------------------------------------------------------- */
+
+.app-alert {
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------------------- */
+/* Login page                                                         */
+/* ---------------------------------------------------------------- */
+
+.login-body {
+    background: var(--body-bg);
+    min-height: 100vh;
+}
+
+.login-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.login-brand-panel {
+    flex: 1;
+    background: radial-gradient(
+        circle at 30% 20%,
+        var(--navy-700),
+        var(--navy-900)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.login-brand-inner {
+    max-width: 420px;
+    color: #fff;
+}
+
+.login-brand-icon {
+    font-size: 3rem;
+    color: var(--teal-400);
+    margin-bottom: 14px;
+}
+
+.login-tagline {
+    color: var(--text-muted);
+    margin-top: 16px;
+}
+
+.login-form-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy-800);
+    padding: 24px;
+}
+
+.login-form-box {
+    width: 100%;
+    max-width: 380px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 32px;
+}
+
+.login-form-box h3 {
+    color: #fff;
+}
+
+@media (max-width: 860px) {
+    .login-brand-panel {
+        display: none;
+    }
+}
+
+/* ---------------------------------------------------------------- */
+/* Access denied page                                                 */
+/* ---------------------------------------------------------------- */
+
+.access-denied-body {
+    background: var(--body-bg);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.access-denied-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 48px;
+}
+
+/* ---------------------------------------------------------------- */
+/* Responsive                                                         */
+/* ---------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+    .app-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .app-sidebar.show {
+        transform: translateX(0);
+    }
+
+    .app-content {
+        margin-left: 0;
+    }
+
+    .sidebar-backdrop.show {
+        display: block;
+    }
+}
+/* ---------------------------------------------------------------- */
+/* React port additions                                              */
+/* Small extras needed because the sidebar logout is now a <button>  */
+/* and a few elements moved out of inline styles into classes.       */
+/* ---------------------------------------------------------------- */
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 15px;
+    border-top: 1px solid var(--border-soft);
+}
+
+.sidebar-logout {
+    width: 100%;
+    background: transparent;
+    border: none;
+    text-align: left;
+    color: #ff6b6b !important;
+    cursor: pointer;
+}
+
+.sidebar-logout i {
+    color: #ff6b6b !important;
+}
+
+.sidebar-logout:hover {
+    background: rgba(239, 68, 68, 0.12);
+}
+
+.login-divider {
+    height: 1px;
+    background: #dee2e6;
+}
+
+/* Pagination buttons are <button> elements in React, not <a> */
+.pagination .page-link {
+    background: var(--card-bg);
+    border-color: var(--border-soft);
+    color: var(--text-light);
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--teal-600);
+    border-color: var(--teal-600);
+    color: #fff;
+}
+
+.pagination .page-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
+/* Dashboard "recent patients" list sits on the dark card */
+.list-group-item {
+    background: var(--card-bg);
+    color: var(--text-light);
+    border-color: var(--border-soft);
+}
+
+/* The 403 panel is rendered inside the dashboard layout */
+.app-main .access-denied-box {
+    max-width: 520px;
+}
+
+/* Keyboard focus stays visible for accessibility */
+.sidebar-link:focus-visible,
+.btn:focus-visible,
+.page-link:focus-visible {
+    outline: 2px solid var(--teal-400);
+    outline-offset: 2px;
+}
